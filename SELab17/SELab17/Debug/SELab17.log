@@ -1,0 +1,19 @@
+﻿  Error.cpp
+  Fst.cpp
+D:\3 семм\кпо\SELab17\SELab17\Fst.cpp(69,23): warning C4267: инициализация: преобразование из "size_t" в "short"; возможна потеря данных
+  In.cpp
+D:\3 семм\кпо\SELab17\SELab17\In.cpp(102,31): warning C4018: <: несоответствие типов со знаком и без знака
+D:\3 семм\кпо\SELab17\SELab17\In.cpp(105,34): warning C4805: ==: небезопасное смешение типа "int" и типа "bool" в операции
+  IT.cpp
+  Lexer.cpp
+D:\3 семм\кпо\SELab17\SELab17\Lexer.cpp(605,23): warning C4018: <: несоответствие типов со знаком и без знака
+D:\3 семм\кпо\SELab17\SELab17\Lexer.cpp(612,22): warning C4018: <: несоответствие типов со знаком и без знака
+  Log.cpp
+  LT.cpp
+  Out.cpp
+D:\3 семм\кпо\SELab17\SELab17\Out.cpp(25,21): warning C4018: <: несоответствие типов со знаком и без знака
+D:\3 семм\кпо\SELab17\SELab17\Out.cpp(33,21): warning C4018: <: несоответствие типов со знаком и без знака
+  Parm.cpp
+  SELab17.cpp
+  Создание кода...
+  SELab17.vcxproj -> D:\3 семм\кпо\SELab17\Debug\SELab17.exe
