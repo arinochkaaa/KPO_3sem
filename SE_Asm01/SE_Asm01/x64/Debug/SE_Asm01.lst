@@ -1,0 +1,98 @@
+Microsoft (R) Macro Assembler (x64) Version 14.37.32822.0   12/11/24 10:53:20
+SE_Asm01.asm						     Page 1 - 1
+
+
+				.586P                                                  ; система подкоманд (процессор Pentium)
+SE_Asm01.asm(1) : error A2008:syntax error : .
+				.MODEL FLAT, STDCALL                                   ; модель памяти, соглашение о вызове
+SE_Asm01.asm(2) : error A2008:syntax error : .
+				includelib kernel32.lib                                ; компановщику: компоновать с kernel32
+				
+				ExitProcess PROTO :DWORD                              ; прототип функции для завершения процесса Windows
+				MessageBoxA PROTO :DWORD, :DWORD, :DWORD, :DWORD      ; прототип API-функции MessageBoxA
+				
+				.STACK 4096                                            ; выделение стека
+SE_Asm01.asm(8) : error A2008:syntax error : .
+				
+ 00000000			.CONST                                                 ; сегмент констант
+				
+ 00000000			.DATA                                                  ; сегмент данных
+ = 00000000			MB_OK EQU 0                                            ; EQU определяет константу
+ 00000000 CC EE FF 20 EF	STR1 DB "Моя первая программа", 0                    ; строка, первый элемент данные + нулевой бит
+	   E5 F0 E2 E0 FF
+	   20 EF F0 EE E3
+	   F0 E0 EC EC E0
+	   00
+ 00000015 F5 E5 EB EB EE	STR2 DB "хелло ворлд!", 0                            ; строка, первый элемент данные + нулевой бит
+	   20 E2 EE F0 EB
+	   E4 21 00
+ 00000022 C2 F2 EE F0 EE	STR3 DB "Второе окно!", 0              ; строка для второго сообщения
+	   E5 20 EE EA ED
+	   EE 21 00
+ 0000002F 00000000		HW DD ?                                                ; двойное слово длиной 4 байта, неинициализировано
+				
+ 00000000			.CODE                                                  ; сегмент кода
+				
+ 00000000			main PROC                                              ; точка входа main
+ 00000000			START:                                                 ; метка
+ 00000000  6A 00		        PUSH MB_OK
+				        PUSH OFFSET STR1
+SE_Asm01.asm(24) : error A2070:invalid instruction operands
+				        PUSH OFFSET STR2
+SE_Asm01.asm(25) : error A2070:invalid instruction operands
+				        PUSH HW
+SE_Asm01.asm(26) : error A2070:invalid instruction operands
+ 00000002  E8 00000000 E	        CALL MessageBoxA                               ; вызов первой функции MessageBoxA
+				
+				        ; Второе окно сообщения
+ 00000007  6A 00		        PUSH MB_OK
+				        PUSH OFFSET STR1
+SE_Asm01.asm(31) : error A2070:invalid instruction operands
+				        PUSH OFFSET STR3
+SE_Asm01.asm(32) : error A2070:invalid instruction operands
+				        PUSH HW
+SE_Asm01.asm(33) : error A2070:invalid instruction operands
+ 00000009  E8 00000000 E	        CALL MessageBoxA                               ; вызов второй функции MessageBoxA
+				
+ 0000000E  6A FF		        PUSH -1                                        ; код возврата процесса Windows (параметр ExitProcess)
+ 00000010  E8 00000000 E	        CALL ExitProcess                               ; конец процедуры
+ 00000015			main ENDP
+				
+				end main                                               ; конец модуля main
+SE_Asm01.asm(40) : error A2008:syntax error : main
+SE_Asm01.asm(40) : error A2088:END directive required at end of file
+Microsoft (R) Macro Assembler (x64) Version 14.37.32822.0   12/11/24 10:53:20
+SE_Asm01.asm						     Symbols 2 - 1
+
+
+
+
+Segments:
+
+                N a m e                  Length   Align   Class
+
+CONST  . . . . . . . . . . . . .	 00000000 16	  'CONST'	 ReadOnly
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+ExitProcess  . . . . . . . . . .	P 	 00000000 Length= 00000000 External
+MessageBoxA  . . . . . . . . . .	P 	 00000000 Length= 00000000 External
+main . . . . . . . . . . . . . .	P 	 00000000 _TEXT	Length= 00000015 Public
+  START  . . . . . . . . . . . .	L 	 00000000 _TEXT	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+HW . . . . . . . . . . . . . . .	DWord	 0000002F _DATA	
+MB_OK  . . . . . . . . . . . . .	Number	 00000000h   
+STR1 . . . . . . . . . . . . . .	Byte	 00000000 _DATA	
+STR2 . . . . . . . . . . . . . .	Byte	 00000015 _DATA	
+STR3 . . . . . . . . . . . . . .	Byte	 00000022 _DATA	
+
+	   0 Warnings
+	   11 Errors
